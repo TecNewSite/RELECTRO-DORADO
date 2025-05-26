@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda RELECTRO DORADO</title>
+    <link rel="icon" href="imagen/TecNew.png" type="image/png">
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4; /* Color de fondo por defecto */
+            background-image: url('tu-imagen-de-fondo.jpg'); /* Reemplaza con la URL de tu imagen */
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente para el contenido */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        /* Estilos para el menú de navegación */
+        .main-nav {
+            background-color: #333;
+            padding: 10px 0;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .main-nav ul li {
+            margin: 0 15px;
+        }
+
+        .main-nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: background-color 0.3s ease;
+        }
+
+        .main-nav ul li a:hover {
+            background-color: #555;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .product-item {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            display: flex; /* Para alinear verticalmente los elementos internos */
+            flex-direction: column; /* Apilar imagen, detalles y botones */
+            align-items: center; /* Centrar horizontalmente los elementos internos */
+        }
+
+        .product-image-container {
+            width: 100%; /* Ocupar todo el ancho del item */
+            max-width: 300px; /* Ancho máximo razonable para la imagen */
+            overflow: hidden;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: auto; /* Eliminar la altura fija */
+        }
+
+        .product-image {
+            width: auto;
+            height: auto;
+            max-width: 100%; /* Asegurar que no exceda el contenedor */
+            max-height: 100%; /* Asegurar que no exceda el contenedor */
+            object-fit: contain; /* Ajustar la imagen dentro del contenedor manteniendo su proporción */
+        }
+
+        .product-details {
+            margin-bottom: 10px;
+            width: 100%; /* Ocupar todo el ancho del item */
+        }
+
+        .product-price {
+            font-weight: bold;
+            color: #007bff;
+            margin-bottom: 5px;
+        }
+
+        .product-buttons {
+            display: flex;
+            justify-content: center;
+            width: 100%; /* Ocupar todo el ancho del item */
+        }
+
+        .product-buttons button {
+            padding: 8px 15px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .buy-button {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .details-button {
+            background-color: #007bff;
+            color: white;
+        }
+
+        /* Estilos para la sección de detalles (inicialmente oculta) */
+        .modal {
+            display: none; /* Oculto por defecto */
+            position: fixed; /* Fijo en la ventana */
+            z-index: 1; /* Sobre otros elementos */
+            left: 0;
+            top: 0;
+            width: 100%; /* Ancho completo */
+            height: 100%; /* Alto completo */
+            overflow: auto; /* Habilitar scroll si el contenido es largo */
+            background-color: rgba(0,0,0,0.4); /* Fondo semi-transparente */
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; /* Centrado vertical y horizontal */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Ancho del contenido modal */
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .product-full-details {
+        }
+        body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #d47317; /* Color de fondo por defecto */
+    background-image: url('noimagen'); /* Reemplaza con la URL de tu imagen */
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.faq-section {
+    margin: 40px 0;
+    text-align: left;
+    background-color: #ffffffcc;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.faq-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.faq-section details {
+    margin-bottom: 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+.hero-title {
+    font-size: 64px;
+    font-weight: 900;
+    color: #ffd700;
+    text-shadow: 2px 2px 8px #000, 0 0 20px #ffd700;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 2px 2px 8px #000, 0 0 10px #ffd700, 0 0 20px #ffd700;
+    }
+    to {
+        text-shadow: 2px 2px 8px #000, 0 0 20px #ffea00, 0 0 40px #ffea00;
+    }
+}
+.contact-section {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.whatsapp-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #25D366;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.whatsapp-button:hover {
+    background-color: #1ebe5d;
+    transform: scale(1.05);
+}
+
+.facebook-link {
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.facebook-link a {
+    color: #1877F2;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.facebook-link a:hover {
+    text-decoration: underline;
+}
+button, .whatsapp-button {
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover, .whatsapp-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+footer {
+    background-color: #1f1f1f;
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+    margin-top: 40px;
+    font-family: Arial, sans-serif;
+    border-top: 2px solid gold;
+}
+
+footer .slogan {
+    font-size: 18px;
+    font-style: italic;
+    margin-bottom: 10px;
+    color: gold;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="hero-title">RELECTRO DORADO</h1>
+        <img src="imagen/Lidimir__1_-removebg-preview.png"
+      alt="Bocina"
+      style="display:block; margin: 10px auto 0; width:200px; height:auto;">
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#catalogo-productos">Catálogo de Productos</a></li>
+                </ul>
+        </nav>
+
+        <div class="faq-section" style="text-align: left; margin-top: 30px;">
+            <h2>Preguntas Frecuentes</h2>
+            <details style="margin-bottom: 10px;">
+                <summary><strong>¿Que es RELECTRO DORADO?</strong></summary>
+                <p>Somos una tienda online de parlantes, donde resaltamos por nuestra calidad, eficacia, confianza y seguridad de nuestros productos, donde nuestra principal meta es llevar una fiesta de sonido y musica a sus hogares.</p>
+            </details>
+            <details style="margin-bottom: 10px;">
+                <summary><strong>¿Cómo se hace el pedido?</strong></summary>
+                <p>Para hacer tu pedido, simplemente haz clic en el botón "Comprar por WhatsApp" que aparece debajo del producto que deseas. Serás redirigido a una conversación directa en WhatsApp donde podrás confirmar tu compra.</p>
+            </details>
+            <details style="margin-bottom: 10px;">
+                <summary><strong>¿Cuánto dura en llegar el pedido?</strong></summary>
+                <p>Los pedidos se entregan en un plazo estimado de 3 a 5 días o 10 a 13 días hábiles, dependiendo de tu ubicación. Te informaremos el tiempo exacto de entrega al momento de realizar tu pedido.</p>
+            </details>
+        </div>
+
+        <div class="contact-section">
+            <a href="https://wa.me/5492804639787?text=¡Hola!%20Tengo%20una%20duda%20sobre%20los%20productos%20que%20estás%20ofreciendo." class="whatsapp-button" target="_blank">
+            <img src="https://img.icons8.com/ios-filled/30/ffffff/whatsapp.png" alt="WhatsApp" />
+            Si tienes dudas no dudes en preguntarnos, con gusto te atenderemos.
+          </a>
+            <div class="facebook-link">
+                <a href="https://www.facebook.com/relectro.dorado/photos" target="_blank">
+              👉 Visítanos también en Facebook.
+                </a>
+            </div>
+        </div>
+
+        <div class="product-grid" id="catalogo-productos">
+            <div class="product-item">
+                <div class="product-image-container">
+                    <img src="imagen/274.jpeg" alt="Parlante 1" class="product-image">
+                </div>
+                <div class="product-details">
+                    <h3>Modelo 1</h3>
+                    <p class="product-price">$274.000</p>
+                </div>
+                <div class="product-buttons">
+                    <button class="buy-button" onclick="comprarPorWhatsApp('Modelo 1', '274.000')">Comprar por WhatsApp</button>
+                    <button class="details-button" onclick="mostrarDetalles('Modelo 1', 'Lidimi LD-S846 se posiciona como una opción robusta y completa para quienes buscan un parlante portátil con gran potencia, resistencia y funciones adicionales para el entretenimiento.')">Ver Detalles</button>
+                </div>
+            </div>
+
+            <div class="product-item">
+                <div class="product-image-container">
+                    <img src="imagen/80negroalto.jpeg" alt="Parlante 2" class="product-image">
+                </div>
+                <div class="product-details">
+                    <h3>Modelo 2</h3>
+                    <p class="product-price">$80.000</p>
+                </div>
+                <div class="product-buttons">
+                    <button class="buy-button" onclick="comprarPorWhatsApp('Modelo 2', '80.000')">Comprar por WhatsApp</button>
+                    <button class="details-button" onclick="mostrarDetalles('Modelo 2', 'Lidimi LD-S030 es un parlante Bluetooth portátil bien equipado, con suficiente potencia para uso doméstico y en reuniones pequeñas, múltiples opciones de conectividad y el atractivo añadido de las luces RGB para un ambiente festivo.')">Ver Detalles</button>
+                </div>
+            </div>
+
+            <div class="product-item">
+                <div class="product-image-container">
+                    <img src="imagen/60rojo.jpeg" alt="Parlante 3" class="product-image">
+                </div>
+                <div class="product-details">
+                    <h3>Modelo 3</h3>
+                    <p class="product-price">$60.000</p>
+                </div>
+                <div class="product-buttons">
+                    <button class="buy-button" onclick="comprarPorWhatsApp('Modelo 3', '60.000')">Comprar por WhatsApp</button>
+                    <button class="details-button" onclick="mostrarDetalles('Modelo 3', 'Lidimi LD-S818 es un parlante portátil Bluetooth que destaca por su combinación de sonido de 20W, un diseño práctico con opciones de color, múltiples formas de conectividad, luces RGB, y una importante resistencia al agua, lo que lo convierte en una opción versátil y atractiva para diversas situaciones.')">Ver Detalles</button>
+                </div>
+            </div>
+
+            <div class="product-item">
+                <div class="product-image-container">
+                    <img src="imagen/60negroalto.jpeg" alt="Parlante 4" class="product-image">
+                </div>
+                <div class="product-details">
+                    <h3>Modelo 4</h3>
+                    <p class="product-price">$60.000</p>
+                </div>
+                <div class="product-buttons">
+                    <button class="buy-button" onclick="comprarPorWhatsApp('Modelo 4', '60.000')">Comprar por WhatsApp</button>
+                    <button class="details-button" onclick="mostrarDetalles('Modelo 4', 'Lidimi LD-S017 es un parlante portátil Bluetooth que busca satisfacer a usuarios que valoran una potencia de sonido de 40W con buenos bajos, una amplia gama de opciones de conectividad, un diseño portátil con luces RGB para el ambiente, y una buena autonomía de batería para disfrutar de la música por horas.')">Ver Detalles</button>
+                </div>
+            </div>
+
+            <div class="product-item">
+                <div class="product-image-container">
+                    <img src="imagen/60negro.jpeg" alt="Parlante 5" class="product-image">
+                </div>
+                <div class="product-details">
+                    <h3>Modelo 5</h3>
+                    <p class="product-price">$60.000</p>
+                </div>
+                <div class="product-buttons">
+                    <button class="buy-button" onclick="comprarPorWhatsApp('Modelo 5', '60.000')">Comprar por WhatsApp</button>
+                    <button class="details-button" onclick="mostrarDetalles('Modelo 5', 'Lidimi LD-S010AC es un parlante portátil robusto que destaca por su potencia de 40W, su flexibilidad en la carga (recargable y AC), su amplia conectividad y una buena autonomía de batería, lo que lo convierte en una opción sólida para quienes buscan un sonido potente y versátil en un formato portátil.')">Ver Detalles</button>
+                </div>
+            </div>
+
+            <div class="product-item">
+                <div class="product-image-container">
+                    <img src="imagen/60azul.jpeg" alt="Parlante 6" class="product-image">
+                </div>
+                <div class="product-details">
+                    <h3>Modelo 6</h3>
+                    <p class="product-price">$60.000</p>
+                </div>
+                <div class="product-buttons">
+                    <button class="buy-button" onclick="comprarPorWhatsApp('Modelo 6', '60.000')">Comprar por WhatsApp</button>
+                    <button class="details-button" onclick="mostrarDetalles('Modelo 6', 'Lidimi LD-S650 es un parlante Bluetooth muy completo, ideal para quienes buscan potencia (20W con Extra Bass), resistencia al agua, múltiples opciones de conectividad y un atractivo visual con luces RGB, todo ello en un formato portátil y con una buena autonomía de batería.')">Ver Detalles</button>
+                </div>
+            </div>
+
+            <div class="product-item">
+                <div class="product-image-container">
+                    <img src="imagen/55negro.jpeg" alt="Parlante 7" class="product-image">
+                </div>
+                <div class="product-details">
+                    <h3>Modelo 7</h3>
+                    <p class="product-price">$55.000</p>
+                </div>
+                <div class="product-buttons">
+                    <button class="buy-button" onclick="comprarPorWhatsApp('Modelo 7', '55.000')">Comprar por WhatsApp</button>
+                    <button class="details-button" onclick="mostrarDetalles('Modelo 7', 'Lidimi LD-S025 es un parlante portátil atractivo por su potencia de 40W con Extra Bass, su diseño compacto, la buena autonomía de su batería, y su versatilidad en las opciones de reproducción (Bluetooth, USB, Radio FM y posible entrada de micrófono). Es una buena opción para quienes buscan un sonido robusto en un dispositivo fácil de transportar.')">Ver Detalles</button>
+                </div>
+            </div>
+
+            <div class="product-item">
+                <div class="product-image-container">
+                    <img src="imagen/38negro.jpeg" alt="Parlante 8" class="product-image">
+                </div>
+                <div class="product-details">
+                    <h3>Modelo 8</h3>
+                    <p class="product-price">$38.000</p>
+                </div>
+                <div class="product-buttons">
+                    <button class="buy-button" onclick="comprarPorWhatsApp('Modelo 8', '$38.000')">Comprar por WhatsApp</button>
+                    <button class="details-button" onclick="mostrarDetalles('Modelo 8', 'Lidimi LD-S626 es un parlante Bluetooth portátil ideal para quienes buscan una solución de audio conveniente y con estilo. Destaca por su diseño compacto, sus múltiples opciones de conectividad, las atractivas luces RGB y una autonomía de batería decente para su tamaño, convirtiéndolo en un compañero musical versátil para el día a día.')">Ver Detalles</button>
+                </div>
+            </div>
+
+            <div class="product-item">
+                <div class="product-image-container">
+                    <img src="imagen/38azul.jpeg" alt="Parlante 9" class="product-image">
+                </div>
+                <div class="product-details">
+                    <h3>Modelo 9</h3>
+                    <p class="product-price">$38.000</p>
+                </div>
+                <div class="product-buttons">
+                    <button class="buy-button" onclick="comprarPorWhatsApp('Modelo 9', '$38.000')">Comprar por WhatsApp</button>
+                    <button class="details-button" onclick="mostrarDetalles('Modelo 9', 'Lidimi LD-S814 es un mini parlante Bluetooth que destaca por su diseño extremadamente portátil, las atractivas luces RGB que van al ritmo de la música, y sus múltiples opciones de reproducción (Bluetooth, USB, Radio FM). Es una excelente opción para quienes buscan un compañero musical compacto, divertido y funcional para el día a día.')">Ver Detalles</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="detallesModal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" onclick="cerrarDetalles()">&times;</span>
+                <h3>Detalles del Producto</h3>
+                <div id="productFullDetails" class="product-full-details">
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function comprarPorWhatsApp(nombreProducto, precio) {
+            const numeroTelefono = '+5492804639787'; // Reemplaza con tu número de WhatsApp
+            const mensaje = `Hola, estoy interesado en comprar el parlante "${nombreProducto}" con precio de $${precio}.`;
+            const urlWhatsApp = `https://wa.me/${numeroTelefono}?text=${encodeURIComponent(mensaje)}`;
+            window.open(urlWhatsApp, '_blank');
+        }
+
+        let modal = document.getElementById("detallesModal");
+        let productDetailsContainer = document.getElementById("productFullDetails");
+
+        function mostrarDetalles(nombreProducto, detalles) {
+            productDetailsContainer.innerHTML = `<h4>${nombreProducto}</h4><p>${detalles}</p>`;
+            modal.style.display = "block";
+        }
+
+        function cerrarDetalles() {
+            modal.style.display = "none";
+        }
+
+        // Cerrar el modal si se hace clic fuera de él
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+    <footer>
+    <div class="footer-content">
+        <p class="slogan">¡Compra inteligente, escucha con estilo y lleva el control en tu muñeca!</p>
+        <p>&copy; RELECTRO DORADO. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+</body>
+</html>
